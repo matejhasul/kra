@@ -5,7 +5,7 @@ Group:		Applications/System
 Summary:	Collectd vertica plugin
 License:	TBD
 URL:		TODO:
-Source0:	master.zip
+Source0:	collectd-vertica.tar
 BuildArch:	noarch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 # TODO: Add requires
@@ -17,7 +17,7 @@ Requires:	python
 Collectd plugin for vertica
 
 %prep
-%setup -q -n src
+%setup -q -n kra
 
 %build
 
@@ -25,7 +25,7 @@ Collectd plugin for vertica
 # TODO: Deliver default config as well
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT/usr/lib64/collectd
-cp -a vertica.py $RPM_BUILD_ROOT/usr/lib/64/collectd/
+cp -a vertica.py $RPM_BUILD_ROOT/usr/lib64/collectd/
 
 #install -D -p monitoringplugin.py $RPM_BUILD_ROOT%{python_sitelib}/monitoringplugin.py
 
@@ -34,7 +34,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(0755, root, root, -)
-/usr/lib64/collectd/vertica.py
+/usr/lib64/collectd/vertica.py*
 #%attr(0644, root, root) %{python_sitelib}/monitoringplugin.py*
 
 %changelog
